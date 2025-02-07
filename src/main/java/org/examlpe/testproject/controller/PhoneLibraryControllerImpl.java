@@ -1,6 +1,7 @@
 package org.examlpe.testproject.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.examlpe.testproject.dto.ErrorResponse;
 import org.examlpe.testproject.dto.NumberRequest;
 import org.examlpe.testproject.dto.NumberResponse;
 import org.examlpe.testproject.service.NumberService;
@@ -22,8 +23,11 @@ public class PhoneLibraryControllerImpl implements PhoneLibraryController {
         return numberService.getNumberByName(name);
     }
 
+
+    // Обработка ошибок
+
     @ExceptionHandler(Exception.class)
-    public String exceptionHandle(Exception e){
-        return e.getMessage() + "...from library";
+    public ErrorResponse exceptionHandle(Exception e){
+        return new ErrorResponse(e.getMessage() + "...from library");
     }
 }

@@ -2,6 +2,7 @@ package org.examlpe.testproject.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.examlpe.testproject.domain.CallMessage;
+import org.examlpe.testproject.dto.ErrorResponse;
 import org.examlpe.testproject.dto.MessageResponse;
 import org.examlpe.testproject.service.CallService;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,11 @@ public class CallControllerImpl implements CallController {
         return callService.call(name);
     }
 
+
+    // Обработка ошибок
+
     @ExceptionHandler(Exception.class)
-    public String exceptionHandle(Exception e){
-        return e.getMessage() + "...from call";
+    public ErrorResponse exceptionHandle(Exception e){
+        return new ErrorResponse(e.getMessage() + "...from call");
     }
 }

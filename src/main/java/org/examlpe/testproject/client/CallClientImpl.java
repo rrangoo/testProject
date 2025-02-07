@@ -10,7 +10,10 @@ import java.util.Random;
 @Component
 public class CallClientImpl implements CallClient {
 
+    // номер на который совершается текущий звонок
     private String currentNumber;
+
+    // Состояние клиента (FREE - свободен, OCCUPIED - совершается звонок)
     private CallStatus status;
 
     public CallClientImpl() {
@@ -23,6 +26,7 @@ public class CallClientImpl implements CallClient {
             throw new CallClientOccupiedException("Call client occupied");
         }
 
+        // обновление состояния
         currentNumber = number;
         status = CallStatus.OCCUPIED;
     }
@@ -33,11 +37,12 @@ public class CallClientImpl implements CallClient {
             throw new CallClientFreeException("Call client free");
         }
 
+        // генерация сообщения
         Random rand = new Random();
         CallMessage message = new CallMessage(rand.nextInt(101), currentNumber);
 
+        // сброс состояния
         currentNumber = null;
-
         status = CallStatus.FREE;
 
         return message;
