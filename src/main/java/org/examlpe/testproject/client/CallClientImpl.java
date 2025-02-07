@@ -1,6 +1,7 @@
 package org.examlpe.testproject.client;
 
 import org.examlpe.testproject.domain.CallMessage;
+import org.examlpe.testproject.domain.Number;
 import org.examlpe.testproject.exceptions.CallClientFreeException;
 import org.examlpe.testproject.exceptions.CallClientOccupiedException;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.Random;
 public class CallClientImpl implements CallClient {
 
     // номер на который совершается текущий звонок
-    private String currentNumber;
+    private Number currentNumber;
 
     // Состояние клиента (FREE - свободен, OCCUPIED - совершается звонок)
     private CallStatus status;
@@ -21,7 +22,7 @@ public class CallClientImpl implements CallClient {
     }
 
     @Override
-    public void startCall(String number) {
+    public void startCall(Number number) {
         if (status != CallStatus.FREE) {
             throw new CallClientOccupiedException("Call client occupied");
         }

@@ -1,5 +1,6 @@
 package org.examlpe.testproject.service;
 
+import org.examlpe.testproject.domain.Number;
 import org.examlpe.testproject.dto.NumberResponse;
 
 public interface NumberService {

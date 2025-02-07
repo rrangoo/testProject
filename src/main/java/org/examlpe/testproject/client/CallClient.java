@@ -1,6 +1,7 @@
 package org.examlpe.testproject.client;
 
 import org.examlpe.testproject.domain.CallMessage;
+import org.examlpe.testproject.domain.Number;
 
 public interface CallClient {
 
@@ -9,7 +10,7 @@ public interface CallClient {
      * инициация начала звонка
      * @param number номер для звонка
      */
-    void startCall(String number);
+    void startCall(Number number);
 
     /**
      * завершение звонка

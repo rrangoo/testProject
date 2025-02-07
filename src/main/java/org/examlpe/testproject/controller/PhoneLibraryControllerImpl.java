@@ -1,6 +1,7 @@
 package org.examlpe.testproject.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.examlpe.testproject.domain.Number;
 import org.examlpe.testproject.dto.ErrorResponse;
 import org.examlpe.testproject.dto.NumberRequest;
 import org.examlpe.testproject.dto.NumberResponse;

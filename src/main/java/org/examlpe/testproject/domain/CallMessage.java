@@ -5,9 +5,9 @@ import lombok.Getter;
 @Getter
 public class CallMessage {
     private int message;
-    private String number;
+    private Number number;
 
-    public CallMessage(int message, String number) {
+    public CallMessage(int message, Number number) {
         this.message = message;
         this.number = number;
     }
